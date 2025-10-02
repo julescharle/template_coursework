@@ -36,6 +36,8 @@ include_solutions <- TRUE
 require(rmarkdown)
 require(knitr)
 require(kableExtra)
+require(ggplot2)
+require(palmerpenguins)
 # Put any library imports and other preamble here.
 ```
 
@@ -161,6 +163,26 @@ kbl(df,
   kable_styling(
     bootstrap_options = c("striped", "hover", "condensed"),
     font_size = 12)
+```
+
+# My Examples
+
+Below are my examples to add on to the department template
+
+
+```{r, echo = F}
+#| label: fig-plot
+#| fig-cap: "Plot"
+data("penguins")
+f <- ggplot(penguins, aes(x=species, y= body_mass_g, colour = species, fill = species)) + geom_boxplot() + labs(x = "Species", y = "Bodymass", title = "Average Body Mass By Species") + theme_linedraw()
+
+
+f <- f + theme(
+  plot.title = element_text(size=17, face="bold.italic"),
+  axis.title.x = element_text(size=14, face="bold"),
+  axis.title.y = element_text(size=14, face="bold")
+)
+f
 ```
 
 
