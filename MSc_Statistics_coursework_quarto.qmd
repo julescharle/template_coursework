@@ -165,7 +165,9 @@ kbl(df,
 
 # My Examples
 
-Below are my examples to add on to the department template
+Below are my examples to add on to the department template.
+
+I will be using the Palmer Penguins R package [@palmerpenguins] for my data
 
 
 ```{r, echo = F}
