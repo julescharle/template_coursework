@@ -28,7 +28,8 @@ body{
 ```{r setup, include = FALSE, tidy=TRUE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  warning = FALSE
 )
 include_solutions <- TRUE
 ```
@@ -54,32 +55,29 @@ Please note:
 # Sampling from the Cauchy distribution
 
 In this question we seek to generate samples from the standard Cauchy distribution, with pdf given by
-\begin{equation}
+$$
   p(x) = \frac{1}{\pi (1 + x^2)}, \quad x \in \mathbb{R}.
-  (\#eq:1)
-\end{equation}
-The cdf associated with \@ref(eq:1) is given by
-\begin{equation}
+$$ {#eq-1}
+The cdf associated with @eq-1 is given by
+$$
   F(x) = \frac{1}{\pi}\arctan(x) + \frac{1}{2}.
-  (\#eq:2)
-\end{equation}
+$$ {#eq-2}
 
-**Part a.**  We apply the inversion method as described by @graham2013stochastic. We first compute the generalised inverse of the cdf \@ref(eq:2).  To this end, let $y\in [0,1]$, then
-
+**Part a.**  We apply the inversion method as described by @graham2013stochastic. We first compute the generalised inverse of the cdf @eq-2.  To this end, let $y\in [0,1]$, then
+$$
 \begin{align}
-    y &= F(x), \quad \iff (\#eq:3a) \\
+    y &= F(x), \quad \iff  \\
     y &= \frac{1}{\pi}\arctan(x) + \frac{1}{2} \quad \iff \\
     y-\frac{1}{2}  &= \frac{1}{\pi}\arctan(x)  \quad \iff \\
     \pi\left(y-\frac{1}{2}\right)  &= \arctan(x)  \quad \iff \\
     x &= \tan\left(\pi\left(y-\frac{1}{2}\right)\right). 
 \end{align}
-
+$${#eq-3}
 By the inversion method [@graham2013stochastic], if $Y \sim U[0,1]$, then 
 
-\begin{equation}
+$$
   X = \tan\left(\pi\left(Y-\frac{1}{2}\right)\right),
-  (\#eq:4)
-\end{equation}
+$$ {#eq-4}
 
 ```{r, echo=FALSE}
 
@@ -185,6 +183,13 @@ f <- f + theme(
 f
 ```
 
+We can also generate some tables 
+
+```{r, echo = F}
+kable(head(penguins))
+```
+
+And we can reference figures, for example @fig-plot
 
 # Code appendix
 
